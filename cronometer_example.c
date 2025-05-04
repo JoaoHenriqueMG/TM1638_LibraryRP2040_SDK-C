@@ -99,6 +99,7 @@ void decrement(int *tic) {
             press_1 = true;
             show_time(*tic);
             last_time = time_us_64();
+            gpio_put(rele, 1);
         }
         if (!key[1]) press_1 = false;
         if (*tic != 0) {
@@ -111,6 +112,8 @@ void decrement(int *tic) {
             } else {
                 last_time = time_us_64();
             }
+        } else {
+            gpio_put(rele, 0);
         }
         if (*tic < 11) {
             gpio_put(buzzer, 0);
