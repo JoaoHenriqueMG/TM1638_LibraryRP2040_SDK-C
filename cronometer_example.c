@@ -115,7 +115,7 @@ void decrement(int *tic) {
         } else {
             gpio_put(rele, 0);
         }
-        if (*tic < 11) {
+        if (*tic < 10) {
             gpio_put(buzzer, 0);
         } else if (*tic < 61 && run) {
             buzzer_signal(&buzzer_temp);
